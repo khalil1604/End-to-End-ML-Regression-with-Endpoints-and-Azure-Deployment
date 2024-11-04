@@ -54,7 +54,7 @@ def predict_api():
             clarity = request.json['clarity']
         )
 
-        pred_df = data.get_data_as_data_frame()
+        pred_df = data.get_data_as_dataframe()
         predict_pipeline = PredictPipeline()
         pred = predict_pipeline.predict(pred_df)
 
