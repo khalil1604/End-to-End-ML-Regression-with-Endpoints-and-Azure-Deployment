@@ -1,8 +1,8 @@
+scikit-learn==1.2.2  # specify this first
 numpy
 pandas
 matplotlib
 seaborn
-scikit-learn
 ipykernel
 catboost
 xgboost
@@ -10,4 +10,4 @@ dill
 flask
 flask_cors
 lime
-#-e .
+# -e .
