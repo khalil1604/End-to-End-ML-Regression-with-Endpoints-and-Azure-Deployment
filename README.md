@@ -34,10 +34,6 @@ Azure Web App : [https://gempricepredictionkhalilbezrati-ahaac3cwcyc9cmbq.canada
 ![HomepageUI](./Screenshots/HomepageUI.png)
 
 
-# AWS API Link
-
-API Link : [http://gemstonepriceutkarshgaikwad-env.eba-7zp3wapg.ap-south-1.elasticbeanstalk.com/predictAPI](http://gemstonepriceutkarshgaikwad-env.eba-7zp3wapg.ap-south-1.elasticbeanstalk.com/predictAPI)
-
 # Postman Testing of API :
 
 ![API Prediction](./Screenshots/APIPrediction.png)
@@ -67,12 +63,15 @@ API Link : [http://gemstonepriceutkarshgaikwad-env.eba-7zp3wapg.ap-south-1.elast
 
 # Exploratory Data Analysis Notebook
 
+1. Data Manipulation
+2. Descriptive Statistics
+3. Univariate and Bivariate analysis wih visualization
+4. Mutual Information Scores
+
 Link : [EDA Notebook](./notebook/1_EDA_Gemstone_price.ipynb)
 
 # Model Training Approach Notebook
 
-Link : [Model Training Notebook](./notebook/2_Model_Training_Gemstone.ipynb)
+Link : [Model Training Notebook](./notebook/2_Model_Training.ipynb)
 
-# Model Interpretation with LIME 
 
-Link : [LIME Interpretation](./notebook/3_Explainability_with_LIME.ipynb)

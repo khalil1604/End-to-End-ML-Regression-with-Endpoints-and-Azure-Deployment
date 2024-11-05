@@ -52,10 +52,10 @@ class DataIngestion:
 # Run Data ingestion
 if __name__ == '__main__':
     obj = DataIngestion()
-    train_data, test_data = obj.initate_data_ingestion()
+    train_data_path, test_data_path = obj.initate_data_ingestion()
 
     data_transformation = DataTransformation()
-    train_arr, test_arr, _ = data_transformation.initiate_data_transformation(train_data,test_data)
+    train_arr, test_arr, _ = data_transformation.initate_data_transformation(train_data_path,test_data_path)
 
     modeltrainer = ModelTrainer()
     modeltrainer.initate_model_training(train_arr, test_arr)
