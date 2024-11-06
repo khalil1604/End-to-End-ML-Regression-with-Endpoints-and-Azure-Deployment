@@ -1,3 +1,14 @@
+# Table of Contents
+
+- [Gemstone Price Prediction](#gemstone-price-prediction)
+- [Approach for the project](#approach-for-the-project)
+- [Exploratory Data Analysis Notebook](#exploratory-data-analysis-notebook)
+- [Model Training Approach Notebook](#model-training-approach-notebook)
+- [Azure ML Model Deployment Guide](#azure-ml-model-deployment-guide-using-azure-container-registry-docker-and-github-actions)
+
+
+
+
 # Gemstone Price Prediction 
 ### Introduction About the Data :
  
