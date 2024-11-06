@@ -7,7 +7,26 @@
 - [Azure ML Model Deployment Guide](#azure-ml-model-deployment-guide-using-azure-container-registry-docker-and-github-actions)
 
 
+## Key Features
+- 🔮 Predicts gemstone prices using VotingRegressor (CatBoost, XGBoost, KNN)
+- 🌐 Flask web application with user-friendly interface
+- 🐳 Containerized with Docker
+- ☁️ Deployed on Azure using Container Registry (ACR)
+- 🔄 CI/CD pipeline using GitHub Actions
+- 📊 Includes EDA and model training notebooks
 
+## Tech Stack
+- Machine Learning: scikit-learn, CatBoost, XGBoost
+- Web App: Flask
+- Cloud: Azure Web App, Azure Container Registry
+- DevOps: Docker, GitHub Actions
+- Data Analysis: Pandas, NumPy, Matplotlib
+
+## Live Demo
+Try it here: [Gemstone Price Prediction App](https://gempricepredictionkhalilbezrati-ahaac3cwcyc9cmbq.canadacentral-01.azurewebsites.net/)
+
+## Author
+Khalil
 
 # Gemstone Price Prediction 
 ### Introduction About the Data :
