@@ -75,23 +75,65 @@ Link : [EDA Notebook](./notebook/1_EDA_Gemstone_price.ipynb)
 Link : [Model Training Notebook](./notebook/2_Model_Training.ipynb)
 
 
+# Azure ML Model Deployment Guide using Azure Container Registry, Docker, and GitHub Actions
 
-resource group : testdockerkhali
-create azure container registry
-mention tthe azure container registry and how the access and key and the name of the registry was handful to to the next step
+this part outlines the steps required to deploy an ML project on Azure. We’ll use Azure Container Registry (ACR) to store and manage Docker images, and Azure Web App to host and run the application. The deployment process includes CI/CD (Continuous Integration and Continuous Deployment) through GitHub Actions, making it easier to automate and maintain.
 
-then before building the web app we must push the docker image created locally in azure using these commands : 
+## 1. Resource Group and Azure Container Registry (ACR)
 
-Build the image
+* **Resource Group (`testdockerkhalil`)**: A logical container for managing resources in Azure, including ACR and web apps. It simplifies managing related resources as a unit.
+* 
+* **Create ACR**: We create an ACR to manage Docker images for our project. The **registry name** and **access keys** will be essential for pushing and pulling images in subsequent steps. ACR securely stores images and enables faster deployment across Azure services.
+* **Access Keys and ACR Registry Name**:
+   * The **registry name** (e.g., `testdockerkrish.azurecr.io`) uniquely identifies your ACR instance.
+   * **Access keys** (Admin account) enable CLI and API access to ACR. These are critical for authenticating Docker commands when interacting with ACR.
+ 
+
+## 2. Build and Push Docker Image
+Building and pushing the Docker image ensures that the latest version of the ML model and its dependencies are in the ACR, ready to be deployed to the web app. Here's a breakdown:
+
+* **Build Docker Image**:
+```bash
 docker build -t testdockerkrish.azurecr.io/mltest:latest .
+```
+This command builds a Docker image named `mltest` with the `latest` tag. Docker creates a layered, portable image of your application, including all required dependencies.
 
-
-login to the registry
+* **Login to ACR**:
+```bash
 docker login testdockerkrish.azurecr.io
+```
+This command authenticates your Docker CLI to access the ACR, using the registry name and access keys for security. Successful login allows pushing images to the registry.
 
-push to the registry
-docker push testdockerkhalil.azurecr.io/gemstonepriceprediction:latest
+* **Push Docker Image**:
+```bash
+docker push testdockerkrish.azurecr.io/mltest:latest
+```
+This command pushes the built image from your local environment to ACR. It's essential for making your application accessible to Azure services for deployment.
 
-after that we can create our web app and select docker container config
 
-after creating the web app we must go to the deployment config of the web app and configure by checking the github action and continuous deployment cases
+ ![HomepageUI](./Screenshots/acr docker.png)
+
+## 3. Create and Configure Azure Web App
+The Azure Web App is the service that will host and run your Docker container.
+* **Docker Container Configuration**: During web app creation, select "Docker Container" as the deployment type to use the image stored in ACR.
+* Specify the registry name and image details (e.g., `testdockerkrish.azurecr.io/gemstonepriceprediction:latest`) for the web app to pull and run your image.
+
+## 4. Deployment Configuration for CI/CD using GitHub Actions
+Using GitHub Actions, we set up a CI/CD pipeline to automate deployments, which makes updates to the ML model seamless. Once configured, any changes to your GitHub repo will automatically trigger the deployment workflow.
+
+* **Deployment Config (GitHub Actions)**:
+   * **Enable GitHub Actions** in the Azure portal under the Deployment Center for your web app. This automates the build and deployment when changes are pushed to the repo.
+   * **Continuous Deployment** (CI/CD): Ensures new updates in the GitHub repository automatically build and deploy to the web app.
+
+* **Workflow Configuration (workflow.yml)**: This YAML file defines the GitHub Actions workflow. Key steps include:
+   * **Checkout Code**: The `checkout` action pulls the latest code from the GitHub repository.
+   * **Login to ACR**: Authenticates GitHub to ACR.
+   * **Build and Push Docker Image**: Rebuilds and pushes the image on every commit.
+   * **Deploy to Web App**: Deploys the updated container from ACR to the Azure Web App.
+
+ ![HomepageUI](./Screenshots/workflow.png)
+
+
+
+
+
