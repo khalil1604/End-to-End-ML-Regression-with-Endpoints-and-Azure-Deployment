@@ -20,9 +20,6 @@ There are 10 independent variables (including `id`):
 Target variable:
 * `price`: Price of the given Diamond.
 
-Dataset Source Link :
-[https://www.kaggle.com/competitions/playground-series-s3e8/data?select=train.csv](https://www.kaggle.com/competitions/playground-series-s3e8/data?select=train.csv)
-
 
 
 # Azure Deployment Link :
@@ -75,6 +72,8 @@ Link : [EDA Notebook](./notebook/1_EDA_Gemstone_price.ipynb)
 Link : [Model Training Notebook](./notebook/2_Model_Training.ipynb)
 
 
+
+
 # Azure ML Model Deployment Guide using Azure Container Registry, Docker, and GitHub Actions
 
 this part outlines the steps required to deploy an ML project on Azure. We’ll use Azure Container Registry (ACR) to store and manage Docker images, and Azure Web App to host and run the application. The deployment process includes CI/CD (Continuous Integration and Continuous Deployment) through GitHub Actions, making it easier to automate and maintain.
@@ -94,7 +93,7 @@ Building and pushing the Docker image ensures that the latest version of the ML 
 
 * **Build Docker Image**:
 ```bash
-docker build -t testdockerkrish.azurecr.io/mltest:latest .
+docker build -t testdockerkrish.azurecr.io/gemstonepriceprediction:latest .
 ```
 This command builds a Docker image named `mltest` with the `latest` tag. Docker creates a layered, portable image of your application, including all required dependencies.
 
@@ -106,12 +105,12 @@ This command authenticates your Docker CLI to access the ACR, using the registry
 
 * **Push Docker Image**:
 ```bash
-docker push testdockerkrish.azurecr.io/mltest:latest
+docker push testdockerkrish.azurecr.io/gemstonepriceprediction:latest
 ```
 This command pushes the built image from your local environment to ACR. It's essential for making your application accessible to Azure services for deployment.
 
 
- ![HomepageUI](./Screenshots/acr docker.png)
+ ![HomepageUI](./Screenshots/acrdocker.png)
 
 ## 3. Create and Configure Azure Web App
 The Azure Web App is the service that will host and run your Docker container.
@@ -132,6 +131,11 @@ Using GitHub Actions, we set up a CI/CD pipeline to automate deployments, which 
    * **Deploy to Web App**: Deploys the updated container from ACR to the Azure Web App.
 
  ![HomepageUI](./Screenshots/workflow.png)
+
+ you can check out the github action part for more logs and details
+
+
+ Authored by Khalil.
 
 
 
