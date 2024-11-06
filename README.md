@@ -75,3 +75,23 @@ Link : [EDA Notebook](./notebook/1_EDA_Gemstone_price.ipynb)
 Link : [Model Training Notebook](./notebook/2_Model_Training.ipynb)
 
 
+
+resource group : testdockerkhali
+create azure container registry
+mention tthe azure container registry and how the access and key and the name of the registry was handful to to the next step
+
+then before building the web app we must push the docker image created locally in azure using these commands : 
+
+Build the image
+docker build -t testdockerkrish.azurecr.io/mltest:latest .
+
+
+login to the registry
+docker login testdockerkrish.azurecr.io
+
+push to the registry
+docker push testdockerkhalil.azurecr.io/gemstonepriceprediction:latest
+
+after that we can create our web app and select docker container config
+
+after creating the web app we must go to the deployment config of the web app and configure by checking the github action and continuous deployment cases
